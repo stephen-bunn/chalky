@@ -1,0 +1,19 @@
+name: Lint Package
+on: [push, pull_request]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Use Python {{ cookiecutter.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: {{ cookiecutter.python_version }}
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade poetry
+          poetry install
+      - name: Run Linters
+        run: |
+          poetry run invoke lint
