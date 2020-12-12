@@ -6,3 +6,7 @@
 
 Simple portable terminal text coloring.
 """
+
+from .shortcuts import bg, clear_line, clear_screen, fg, set_title, sty
+
+__all__ = ["fg", "bg", "sty", "clear_line", "clear_screen", "set_title"]
