@@ -68,12 +68,16 @@ def set_title(title: str):
     interface.set_title(title)
 
 
-def rgb(rgb: Tuple[int, int, int], background: bool = False) -> Chalk:
+def rgb(red: int, green: int, blue: int, background: bool = False) -> Chalk:
     """Generate a new truecolor chalk from an RGB tuple.
 
     Args:
-        rgb (Tuple[int, int, int]):
-            The tuple of (red, green, blue) values.
+        red (int):
+            The intensity of red (0-255).
+        green (int):
+            The intensity of green (0-255).
+        blue (int):
+            The intensity of blue (0-255).
         background (bool, optional):
             If ``True`` will generate the new chalk to be applied as a background color.
             Defaults to False.
@@ -83,7 +87,7 @@ def rgb(rgb: Tuple[int, int, int], background: bool = False) -> Chalk:
             The new chalk instance.
     """
 
-    color = TrueColor(*rgb)
+    color = TrueColor(red, green, blue)
     return Chalk(background=color) if background else Chalk(foreground=color)
 
 

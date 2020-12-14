@@ -7,6 +7,6 @@
 Simple portable terminal text coloring.
 """
 
-from .shortcuts import bg, clear_line, clear_screen, fg, set_title, sty
+from .shortcuts import bg, clear_line, clear_screen, fg, hex, rgb, set_title, sty
 
-__all__ = ["fg", "bg", "sty", "clear_line", "clear_screen", "set_title"]
+__all__ = ["fg", "bg", "sty", "rgb", "hex", "clear_line", "clear_screen", "set_title"]
