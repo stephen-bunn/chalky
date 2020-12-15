@@ -5,6 +5,7 @@
 """
 """
 
+import time
 from typing import Optional, Set
 
 from ..color import Color, Color_T, TrueColor
@@ -115,20 +116,44 @@ class AnsiInterface(BaseInterface):
     def _build_reset(self) -> bytes:
         return self._build_escape_sequence(STYLE_MAP.get(Style.RESET, b"0"))
 
+    def _build_reverse_video(self) -> bytes:
+        return CSI + b"?5h"
+
+    def _build_normal_video(self) -> bytes:
+        return CSI + b"?5l"
+
     def clear_screen(self, reset_position: bool = True):
         self.io.write(self._build_clear().decode(self.io.encoding))
         if reset_position:
             self.io.write(self._build_reset_position().decode(self.io.encoding))
 
+        self.io.flush()
+
     def clear_line(self):
         self.io.write("\r")
         self.io.write(self._build_clear_line().decode(self.io.encoding))
+        self.flush()
+
+    def reverse_video(self):
+        self.io.write(self._build_reverse_video().decode(self.io.encoding))
+        self.io.flush()
+
+    def normal_video(self):
+        self.io.write(self._build_normal_video().decode(self.io.encoding))
+        self.io.flush()
+
+    def flash(self, duration: int):
+        self.reverse_video()
+        time.sleep(duration)
+        self.normal_video()
 
     def set_title(self, value: str):
         self.io.write(self._build_set_title(value).decode(self.io.encoding))
+        self.io.flush()
 
     def reset(self):
         self.io.write(self._build_reset().decode(self.io.encoding))
+        self.io.flush()
 
     def build_reset(self) -> bytes:
         return self._build_reset()
