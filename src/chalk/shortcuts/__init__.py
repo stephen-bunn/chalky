@@ -30,42 +30,9 @@ Examples:
     My background is BLUE
 """
 
-import sys
-from typing import Tuple
-
 from ..chalk import Chalk
 from ..color import TrueColor
-from ..interface import get_interface
 from . import bg, fg, sty
-
-interface = get_interface(sys.stdout)
-
-
-def clear_line():
-    """Completely clear the line the cursor is currently on."""
-
-    interface.clear_line()
-
-
-def clear_screen(reset_position: bool = True):
-    """Completely clear the screen.
-
-    Args:
-        reset_position (bool):
-            If ``True``, will reset the prompt position to the top of the screen.
-    """
-
-    interface.clear_screen(reset_position=reset_position)
-
-
-def set_title(title: str):
-    """Set the title of the terminal window.
-
-    Args:
-        title (str): The title to set.
-    """
-
-    interface.set_title(title)
 
 
 def rgb(red: int, green: int, blue: int, background: bool = False) -> Chalk:
@@ -116,7 +83,4 @@ __all__ = [
     "sty",
     "rgb",
     "hex",
-    "clear_line",
-    "clear_screen",
-    "set_title",
 ]

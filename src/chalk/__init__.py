@@ -7,6 +7,19 @@
 Simple portable terminal text coloring.
 """
 
-from .shortcuts import bg, clear_line, clear_screen, fg, hex, rgb, set_title, sty
+from .chalk import Chalk
+from .color import Color, TrueColor
+from .shortcuts import bg, fg, hex, rgb, sty
+from .style import Style
 
-__all__ = ["fg", "bg", "sty", "rgb", "hex", "clear_line", "clear_screen", "set_title"]
+__all__ = [
+    "Chalk",
+    "Color",
+    "TrueColor",
+    "Style",
+    "fg",
+    "bg",
+    "sty",
+    "rgb",
+    "hex",
+]
