@@ -169,7 +169,7 @@ def get_clear_mode(keep_head: bool, keep_tail: bool) -> Optional[int]:
     Returns:
         Optional[int]:
             The appropriate clear mode if available.
-            If ``None`` is provided, consider skipping clearning.
+            If ``None`` is provided, consider skipping clearing.
     """
 
     if keep_head and keep_tail:
@@ -186,7 +186,7 @@ def get_clear_mode(keep_head: bool, keep_tail: bool) -> Optional[int]:
 def build_clear_screen(mode: int) -> bytes:
     """Build the escape sequence to clear the entire screen.
 
-    Various modes are available for clearning the current line in the terminal.
+    Various modes are available for clearing the current line in the terminal.
     These are more appropriately derived from :func:`~ansi.get_clear_mode`.
 
     * 0 - Clear from cursor to end of screen
@@ -195,7 +195,7 @@ def build_clear_screen(mode: int) -> bytes:
 
     Args:
         mode (int):
-            The mode to use for clearning the entire screen.
+            The mode to use for clearing the entire screen.
 
     Returns:
         bytes:
@@ -208,7 +208,7 @@ def build_clear_screen(mode: int) -> bytes:
 def build_clear_line(mode: int) -> bytes:
     """Build the escape sequence to clear the current line.
 
-    Various modes are available for clearning the current line in the terminal.
+    Various modes are available for clearing the current line in the terminal.
     These are more appropriately derived from :func:`~ansi.get_clear_mode`.
 
     * 0 - Clear from cursor to end of line
@@ -257,7 +257,7 @@ def build_position_cursor(x: int, y: int) -> bytes:
     """
 
     if x <= 0 or y <= 0:
-        raise ValueError(f"Cursor positions are 1-indexed, recieved x={x}, y={y}")
+        raise ValueError(f"Cursor positions are 1-indexed, received x={x}, y={y}")
 
     return CSI + int_to_bytes(y) + b";" + int_to_bytes(x) + b"H"
 
@@ -337,7 +337,7 @@ class AnsiInterface(BaseInterface):
                 If True, will retain the text before the cursor position.
                 Defaults to False.
             keep_tail (bool, optional):
-                If True, will reatin the text after the cursor position.
+                If True, will retain the text after the cursor position.
                 Defaults to False.
         """
 
@@ -371,7 +371,6 @@ class AnsiInterface(BaseInterface):
         if not mode:
             return
 
-        self.io.write("\r")
         self._write(build_clear_line(mode))
 
     def set_title(self, title: str):

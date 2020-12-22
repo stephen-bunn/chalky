@@ -98,7 +98,7 @@ class Chalk:
         )
 
     @overload
-    def __add__(self, other: Chalk) -> Chalk:
+    def __add__(self, other: Chalk) -> Chalk:  # pragma: no cover
         """Handle applying chalk to other chalk instances.
 
         Args:
@@ -113,7 +113,7 @@ class Chalk:
         ...
 
     @overload
-    def __add__(self, other: str) -> str:
+    def __add__(self, other: str) -> str:  # pragma: no cover
         """Handle applying chalk to strings.
 
         Args:

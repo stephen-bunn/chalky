@@ -30,7 +30,7 @@ class BaseInterface(abc.ABC):
         reset_position: bool = True,
         keep_head: bool = False,
         keep_tail: bool = False,
-    ):
+    ):  # pragma: no cover
         """Clear the full screen of the terminal.
 
         Args:
@@ -52,7 +52,7 @@ class BaseInterface(abc.ABC):
         self,
         keep_head: bool = False,
         keep_tail: bool = False,
-    ):
+    ):  # pragma: no cover
         """Clear the current line of the terminal.
 
         Args:
@@ -67,7 +67,7 @@ class BaseInterface(abc.ABC):
         ...
 
     @abc.abstractmethod
-    def set_title(self, value: str):
+    def set_title(self, value: str):  # pragma: no cover
         """Set the current title of the terminal.
 
         Args:
@@ -78,25 +78,25 @@ class BaseInterface(abc.ABC):
         ...
 
     @abc.abstractmethod
-    def reset(self):
+    def reset(self):  # pragma: no cover
         """Reset the current style of the terminal."""
 
         ...
 
     @abc.abstractmethod
-    def hide_cursor(self):
+    def hide_cursor(self):  # pragma: no cover
         """Hide the current terminal cursor."""
 
         ...
 
     @abc.abstractmethod
-    def show_cursor(self):
+    def show_cursor(self):  # pragma: no cover
         """Show the current terminal cursor."""
 
         ...
 
     @abc.abstractmethod
-    def flash(self, duration: float):
+    def flash(self, duration: float):  # pragma: no cover
         """Flash the terminal.
 
         Args:
@@ -113,7 +113,7 @@ class BaseInterface(abc.ABC):
         style: Set[Style],
         background: Optional[Color_T],
         foreground: Optional[Color_T],
-    ) -> str:
+    ) -> str:  # pragma: no cover
         """Apply some styles and colors to a given string.
 
         Args:

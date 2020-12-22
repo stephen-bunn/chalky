@@ -4,7 +4,16 @@
 
 """Chalk.
 
-Simple portable terminal text coloring.
+Simple ANSI terminal text coloring.
+Compose multiple of the included chalk instances to produce a style that can be applied
+directly to strings.
+
+Examples:
+    Compose multiple chalk instances together with ``&`` and apply it to a string
+    using ``|``:
+
+    from chalk import sty, fg
+    print(sty.bold & fg.green | "Hello, World!")
 """
 
 from .chalk import Chalk

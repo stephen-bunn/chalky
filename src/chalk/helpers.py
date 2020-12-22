@@ -36,15 +36,19 @@ def supports_truecolor() -> bool:
         return "truecolor" in colorterm.lower()
 
     term = os.getenv("TERM")
-    if term:
-        term = term.lower()
-        return any(
-            value in term
-            for value in (
-                "256color",
-                "24bit",
-            )
+    if not term:
+        return False
+
+    term = term.lower()
+    term_supported = any(
+        value in term
+        for value in (
+            "256color",
+            "24bit",
         )
+    )
+    if term_supported:
+        return True
 
     if supports_posix():
         tput = subprocess.run(["tput", "colors"], capture_output=True)
