@@ -62,7 +62,7 @@ def test_build_escape_sequence(code: bytes):
 
 @given(one_of(sampled_from(Style), none()))
 def test_build_style(style: Optional[Style]):
-    style_sequence = build_style(style)
+    style_sequence = build_style(style)  # type: ignore
     assert isinstance(style_sequence, bytes)
     if style is not None:
         assert len(style_sequence) > 0
@@ -84,7 +84,7 @@ def test_build_truecolor(color: TrueColor, background: bool):
 
 @given(one_of(sampled_from(Color), true_color(), none()), booleans())
 def test_build_color(color: Optional[Color_T], background: bool):
-    escape_sequence = build_color(color, background=background)
+    escape_sequence = build_color(color, background=background)  # type: ignore
     assert isinstance(escape_sequence, bytes)
     if color is not None:
         assert len(escape_sequence) > 0
