@@ -54,6 +54,10 @@ def test_supports_truecolor_checks_TERM(term_value: str):
 
 
 @pytest.mark.skipif(
+    bool(os.environ.get("CI", False)),
+    reason="os specific tests doesn't work in CI",
+)
+@pytest.mark.skipif(
     not supports_posix(),
     reason="os specific tests only works on posix",
 )
