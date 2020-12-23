@@ -11,21 +11,9 @@ from typing import Optional
 from unittest.mock import patch
 
 import pytest
-from hypothesis import given
-from hypothesis.strategies import (
-    binary,
-    booleans,
-    floats,
-    integers,
-    none,
-    one_of,
-    sampled_from,
-    text,
-)
-
-from chalk.chalk import Chalk
-from chalk.color import Color, Color_T, TrueColor
-from chalk.interface.ansi import (
+from chalky.chalk import Chalk
+from chalky.color import Color, Color_T, TrueColor
+from chalky.interface.ansi import (
     MODE_KEEP_HEAD,
     MODE_KEEP_NONE,
     MODE_KEEP_TAIL,
@@ -43,7 +31,18 @@ from chalk.interface.ansi import (
     build_video,
     get_clear_mode,
 )
-from chalk.style import Style
+from chalky.style import Style
+from hypothesis import given
+from hypothesis.strategies import (
+    binary,
+    booleans,
+    floats,
+    integers,
+    none,
+    one_of,
+    sampled_from,
+    text,
+)
 
 from ..test_chalk import chalk
 from ..test_color import true_color
@@ -71,7 +70,7 @@ def test_build_style(style: Optional[Style]):
 @given(true_color(), booleans())
 def test_build_truecolor(color: TrueColor, background: bool):
     with patch(
-        "chalk.interface.ansi.build_escape_sequence", wraps=build_escape_sequence
+        "chalky.interface.ansi.build_escape_sequence", wraps=build_escape_sequence
     ) as mocked_build_escape_sequence:
         color_sequence = build_truecolor(color, background=background)
 
@@ -177,7 +176,7 @@ def test_write():
 
 @given(booleans())
 def test_clear_screen(reset_position: bool):
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.clear_screen(reset_position=reset_position)
 
@@ -185,7 +184,7 @@ def test_clear_screen(reset_position: bool):
 
 
 def test_clear_screen_does_nothing_if_no_mode():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.clear_screen(keep_head=True, keep_tail=True)
 
@@ -193,7 +192,7 @@ def test_clear_screen_does_nothing_if_no_mode():
 
 
 def test_clear_line():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.clear_line()
 
@@ -201,7 +200,7 @@ def test_clear_line():
 
 
 def test_clear_line_does_nothing_if_no_mode():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.clear_line(keep_head=True, keep_tail=True)
 
@@ -210,7 +209,7 @@ def test_clear_line_does_nothing_if_no_mode():
 
 @given(text(printable))
 def test_set_title(title: str):
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.set_title(title)
 
@@ -218,7 +217,7 @@ def test_set_title(title: str):
 
 
 def test_reset():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.reset()
 
@@ -226,7 +225,7 @@ def test_reset():
 
 
 def test_hide_cursor():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.hide_cursor()
 
@@ -234,7 +233,7 @@ def test_hide_cursor():
 
 
 def test_show_cursor():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.show_cursor()
 
@@ -242,7 +241,7 @@ def test_show_cursor():
 
 
 def test_reverse_video():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.reverse_video()
 
@@ -250,7 +249,7 @@ def test_reverse_video():
 
 
 def test_normal_video():
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write:
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write:
         interface = get_interface()
         interface.normal_video()
 
@@ -259,7 +258,7 @@ def test_normal_video():
 
 @given(floats(min_value=0, max_value=1))
 def test_flash(duration: float):
-    with patch("chalk.interface.ansi.AnsiInterface._write") as mocked_write, patch(
+    with patch("chalky.interface.ansi.AnsiInterface._write") as mocked_write, patch(
         "time.sleep"
     ) as mocked_sleep:
 

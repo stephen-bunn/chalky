@@ -1,49 +1,49 @@
 .. _chalk:
 
-Chalk Package
-=============
+Chalky Package
+==============
 
-.. automodule:: chalk
+.. automodule:: chalky
    :members:
 
 
 Chalk
 -----
 
-.. automodule:: chalk.chalk
+.. automodule:: chalky.chalk
    :members:
 
 
 Style
 -----
 
-.. automodule:: chalk.style
+.. automodule:: chalky.style
    :members:
 
 
 Color
 -----
 
-.. automodule:: chalk.color
+.. automodule:: chalky.color
    :members:
 
 
 Shortcuts
 ---------
 
-.. automodule:: chalk.shortcuts
+.. automodule:: chalky.shortcuts
    :members:
 
 
 Interface
 ---------
 
-.. automodule:: chalk.interface
+.. automodule:: chalky.interface
    :members:
 
 
 Helpers
 -------
 
-.. automodule:: chalk.helpers
+.. automodule:: chalky.helpers
    :members:

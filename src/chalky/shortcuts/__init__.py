@@ -8,7 +8,7 @@ Simply combine colors and styles using ``&`` or ``+`` to produce a style that ca
 to format a string with ``|`` or ``+``.
 
 Examples:
-    >>> from chalk import bg, fg, sty
+    >>> from chalky import bg, fg, sty
     >>> my_style = bg.red & fg.black & sty.bold
     >>> print(my_style | "I'm bold black on red text")
     I'm bold black on red text
@@ -16,7 +16,7 @@ Examples:
 Many chalk styles can be combined together:
 
 Examples:
-    >>> from chalk import sty
+    >>> from chalky import sty
     >>> my_style = sty.bold & sty.underline
     >>> print(my_style | "I'm bold and underlined")
     I'm bold and underlined
@@ -24,7 +24,7 @@ Examples:
 The last applied foreground or background color will be used when applied to a string:
 
 Examples:
-    >>> from chalk import bg
+    >>> from chalky import bg
     >>> my_style = bg.red & bg.blue  # BLUE will override RED when styling the string
     >>> print(my_style | "My background is BLUE")
     My background is BLUE

@@ -6,16 +6,13 @@
 """
 
 import os
-from contextlib import contextmanager
-from platform import system
 from typing import Dict, Optional, Set
 from unittest.mock import patch
 
 import pytest
+from chalky.helpers import supports_posix, supports_truecolor
 from hypothesis import given
 from hypothesis.strategies import sampled_from
-
-from chalk.helpers import supports_posix, supports_truecolor
 
 
 def get_environment(exclude_keys: Optional[Set[str]] = None) -> Dict[str, str]:
@@ -71,7 +68,7 @@ def test_supports_truecolor_checks_tput():
 
 
 def test_supports_truecolor_fails():
-    with patch("chalk.helpers.supports_posix") as mocked_supports_posix:
+    with patch("chalky.helpers.supports_posix") as mocked_supports_posix:
         mocked_supports_posix.return_value = False
         with patch.dict(os.environ, get_environment({"TERM", "COLORTERM"}), clear=True):
             assert not supports_truecolor()

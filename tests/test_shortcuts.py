@@ -5,12 +5,11 @@
 """
 """
 
+from chalky.chalk import Chalk
+from chalky.color import TrueColor
+from chalky.shortcuts import hex, rgb
 from hypothesis import given
 from hypothesis.strategies import booleans, integers
-
-from chalk.chalk import Chalk
-from chalk.color import TrueColor
-from chalk.shortcuts import hex, rgb
 
 from .test_color import hex_color
 

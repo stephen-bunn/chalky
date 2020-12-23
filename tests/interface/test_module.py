@@ -7,10 +7,8 @@
 
 import sys
 
-import pytest
-
-from chalk.interface import get_interface
-from chalk.interface.ansi import AnsiInterface
+from chalky.interface import get_interface
+from chalky.interface.ansi import AnsiInterface
 
 
 def test_get_interface():

@@ -2,7 +2,7 @@
 # Copyright (c) 2020 Stephen Bunn <stephen@bunn.io>
 # ISC License <https://choosealicense.com/licenses/isc>
 
-"""Chalk.
+"""Chalky.
 
 Simple ANSI terminal text coloring.
 Compose multiple of the included chalk instances to produce a style that can be applied
@@ -12,7 +12,7 @@ Examples:
     Compose multiple chalk instances together with ``&`` and apply it to a string
     using ``|``:
 
-    from chalk import sty, fg
+    from chalky import sty, fg
     print(sty.bold & fg.green | "Hello, World!")
 """
 

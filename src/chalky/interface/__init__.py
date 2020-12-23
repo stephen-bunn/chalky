@@ -21,7 +21,7 @@ def get_interface(io: Optional[TextIO] = None) -> BaseInterface:
         Get the default interface for interacting with the terminal buffer.
         This defaults to using :data:`sys.stdout`
 
-        >>> from chalk.interface import get_interface
+        >>> from chalky.interface import get_interface
         >>> interface = get_iterface()
 
         To get an interface using a different text io buffer, pass it in:

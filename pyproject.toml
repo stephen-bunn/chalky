@@ -3,19 +3,19 @@ requires = ["poetry>=0.12", "setuptools>=36.2.2", "wheel>=0.28.0"]
 build-backend = "poetry.masonry.api"
 
 [tool.poetry]
-name = "chalk"
+name = "chalky"
 version = "0.1.0"
 description = "Simple ANSI terminal text coloring"
 authors = ["Stephen Bunn <stephen@bunn.io>"]
 maintainers = []
 license = "ISC"
 packages = [
-  { include = "chalk", from = "src" }
+  { include = "chalky", from = "src" }
 ]
 readme = "README.md"
-homepage = "https://github.com/stephen-bunn/chalk"
-repository = "https://github.com/stephen-bunn/chalk"
-documentation = "https://chalk.readthedocs.io"
+homepage = "https://github.com/stephen-bunn/chalky"
+repository = "https://github.com/stephen-bunn/chalky"
+documentation = "https://chalky.readthedocs.io"
 keywords = [
   "chalk",
   "terminal",
@@ -49,7 +49,7 @@ exclude = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/stephen-bunn/chalk/issues"
+"Bug Tracker" = "https://github.com/stephen-bunn/chalky/issues"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -107,8 +107,8 @@ package = "chalk"
 package_dir = "src"
 filename = "CHANGELOG.rst"
 directory = "changes/"
-title_format = "`{version} <https://github.com/stephen-bunn/chalk/releases/tag/v{version}>`_ (*{project_date}*)"
-issue_format = '`#{issue} <https://github.com/stephen-bunn/chalk/issues/{issue}>`_'
+title_format = "`{version} <https://github.com/stephen-bunn/chalky/releases/tag/v{version}>`_ (*{project_date}*)"
+issue_format = '`#{issue} <https://github.com/stephen-bunn/chalky/issues/{issue}>`_'
 template = 'tasks/CHANGELOG.rst.jinja2'
 
 [[tool.towncrier.type]]
