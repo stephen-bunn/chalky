@@ -7,3 +7,11 @@ Changelog
 |
 
 .. towncrier release notes start
+
+`0.1.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.1.0>`_ (*2020-12-23*)
+====================================================================================
+
+Miscellaneous
+-------------
+
+- Adding the contents of an initial alpha release.
