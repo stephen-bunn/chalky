@@ -11,6 +11,18 @@ from typing import Optional
 from unittest.mock import patch
 
 import pytest
+from hypothesis import given
+from hypothesis.strategies import (
+    binary,
+    booleans,
+    floats,
+    integers,
+    none,
+    one_of,
+    sampled_from,
+    text,
+)
+
 from chalky.chalk import Chalk
 from chalky.color import Color, Color_T, TrueColor
 from chalky.interface.ansi import (
@@ -32,17 +44,6 @@ from chalky.interface.ansi import (
     get_clear_mode,
 )
 from chalky.style import Style
-from hypothesis import given
-from hypothesis.strategies import (
-    binary,
-    booleans,
-    floats,
-    integers,
-    none,
-    one_of,
-    sampled_from,
-    text,
-)
 
 from ..test_chalk import chalk
 from ..test_color import true_color

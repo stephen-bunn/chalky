@@ -10,9 +10,10 @@ from typing import Dict, Optional, Set
 from unittest.mock import patch
 
 import pytest
-from chalky.helpers import supports_posix, supports_truecolor
 from hypothesis import given
 from hypothesis.strategies import sampled_from
+
+from chalky.helpers import supports_posix, supports_truecolor
 
 
 def get_environment(exclude_keys: Optional[Set[str]] = None) -> Dict[str, str]:

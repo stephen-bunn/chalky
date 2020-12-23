@@ -9,9 +9,10 @@ from string import printable
 from typing import Optional
 
 import pytest
-from chalky.color import TrueColor
 from hypothesis import given
 from hypothesis.strategies import SearchStrategy, composite, from_regex, integers, text
+
+from chalky.color import TrueColor
 
 
 @composite

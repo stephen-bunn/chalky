@@ -8,9 +8,6 @@
 from string import printable
 from typing import Optional, Set
 
-from chalky.chalk import Chalk
-from chalky.color import Color, Color_T
-from chalky.style import Style
 from hypothesis import given
 from hypothesis.strategies import (
     SearchStrategy,
@@ -22,6 +19,10 @@ from hypothesis.strategies import (
     sets,
     text,
 )
+
+from chalky.chalk import Chalk
+from chalky.color import Color, Color_T
+from chalky.style import Style
 
 from .test_color import true_color
 
