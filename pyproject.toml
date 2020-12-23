@@ -103,7 +103,7 @@ exclude = '''
 '''
 
 [tool.towncrier]
-package = "chalk"
+package = "chalky"
 package_dir = "src"
 filename = "CHANGELOG.rst"
 directory = "changes/"
