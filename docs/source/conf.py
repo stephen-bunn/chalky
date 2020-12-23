@@ -55,7 +55,35 @@ release = metadata["version"]
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx.ext.autodoc", "sphinx.ext.intersphinx", "sphinx.ext.viewcode"]
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",
+    "sphinx_rtd_theme",
+]
+
+
+# Napoleon settings
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = False
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_use_admonition_for_examples = False
+napoleon_use_admonition_for_notes = False
+napoleon_use_admonition_for_references = False
+napoleon_use_ivar = False
+napoleon_use_param = True
+napoleon_use_rtype = True
+napoleon_type_aliases = None
+
+# Autodoc typehints settings
+set_type_checking_flag = True
+typehints_fully_qualified = False
+always_document_param_types = True
+typehints_document_rtype = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -90,21 +118,23 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
 html_theme_options = {
-    "description": metadata["description"],
-    "github_user": "stephen-bunn",
-    "github_repo": "chalk",
-    "github_type": "star",
-    "page_width": "1000px",
-    "sidebar_width": "220px",
-    "sidebar_collapse": True,
-    "fixed_sidebar": True,
+    "logo_only": True,
+    "display_version": True,
+    "prev_next_buttons_location": "bottom",
+    "style_nav_header_background": "#151320",
+    "collapse_navigation": True,
+    "sticky_navigation": True,
+    "navigation_depth": 4,
+    "includehidden": True,
+    "titles_only": False,
+    "style_external_links": False,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

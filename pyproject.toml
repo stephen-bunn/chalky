@@ -75,10 +75,12 @@ pytest-xdist = "^2.1.0"
 readme-renderer = { version = "^26.0", extras = ["md"] }
 rope = "^0.17.0"
 sphinx = "^3.2.1"
+sphinx-rtd-theme = { git = "https://github.com/stephen-bunn/sphinx_rtd_theme", rev = "dracula-pro" }
 toml = "^0.10.1"
 towncrier = "^19.2.0"
 twine = "^3.2.0"
 vprof = { version = "^0.38", optional = true }
+sphinx-autodoc-typehints = "^1.11.1"
 
 [tool.poetry.extras]
 profile = ["pyprof2calltree", "vprof"]
