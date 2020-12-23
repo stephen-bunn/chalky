@@ -1,2 +1,4 @@
 sphinx>=3.0
 toml
+sphinx-autodoc-typehints
+-e git://github.com/stephen-bunn/sphinx_rtd_theme.git@dracula-pro#egg=sphinx_rtd_theme
