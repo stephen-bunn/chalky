@@ -1,8 +1,9 @@
-# Chalky
+![Chalky](docs/source/_static/assets/img/Chalky.png)
 
 [![Supported Versions](https://img.shields.io/pypi/pyversions/chalky.svg)](https://pypi.org/project/chalky/)
 [![Test Status](https://github.com/stephen-bunn/chalky/workflows/Test%20Package/badge.svg)](https://github.com/stephen-bunn/chalky)
 [![Documentation Status](https://readthedocs.org/projects/chalky/badge/?version=latest)](https://chalky.readthedocs.io/)
+[![codecov](https://codecov.io/gh/stephen-bunn/chalky/branch/master/graph/badge.svg?token=G3KRpTeg5J)](https://codecov.io/gh/stephen-bunn/chalky)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 > Simple ANSI terminal text coloring
