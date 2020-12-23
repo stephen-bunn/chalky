@@ -48,10 +48,9 @@ class Chalk:
         This means that if you apply a new chalk with a different foreground color it
         will override the starting foreground color:
 
-        Examples:
-            >>> red = Chalk(foreground=Color.RED)
-            >>> blue = Chalk(foreground=Color.BLUE)
-            >>> assert blue == (red & blue)
+        >>> red = Chalk(foreground=Color.RED)
+        >>> blue = Chalk(foreground=Color.BLUE)
+        >>> assert blue == (red & blue)
     """
 
     style: Set[Style] = field(default_factory=set)

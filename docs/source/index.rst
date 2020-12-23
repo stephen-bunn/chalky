@@ -1,7 +1,7 @@
 .. raw:: html
 
    <img src="_static/assets/img/Chalky.png" style="margin-bottom: 16px;"></img>
-   <p align="center" style="margin: 0 0 24px 0;">
+   <p style="text-align: center;">
       <a href="https://pypi.org/project/chalky/" target="_blank">
          <img alt="Supported Versions" src="https://img.shields.io/pypi/pyversions/chalky.svg">
       </a>
@@ -23,7 +23,15 @@
    </p>
 
 
-Simple ANSI terminal text coloring
+Yet another terminal text coloring library...
+
+Why? Because, I like certain things and I hate certain things about the currently available solutions.
+This here is my attempt to build an interface for simply applying ANSI escape sequences to strings that I enjoy and can update at my own free will.
+That is it, there is nothing new or interesting that this packages adds.
+Thanks 🎉
+
+.. literalinclude:: _static/assets/examples/basic_usage.py
+   :linenos:
 
 
 **To get started using this package, please see the** :ref:`getting-started` **page!**
@@ -32,7 +40,7 @@ User Documentation
 ------------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    getting-started
    contributing

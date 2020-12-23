@@ -14,7 +14,28 @@ from .helpers import int_to_bytes
 
 
 class Color(Enum):
-    """Enum of the available colors that can be used to color some printable text."""
+    """Enum of the available colors that can be used to color some printable text.
+
+    Attributes:
+        BLACK
+        RED
+        GREEN
+        YELLOW
+        BLUE
+        MAGENTA
+        CYAN
+        WHITE
+        BRIGHT_BLACK:
+            Otherwise known as gray.
+        BRIGHT_RED
+        BRIGHT_GREEN
+        BRIGHT_YELLOW
+        BRIGHT_BLUE
+        BRIGHT_MAGENTA
+        BRIGHT_CYAN
+        BRIGHT_WHITE:
+            Otherwise known as actual white.
+    """
 
     BLACK = "black"
     RED = "red"
@@ -37,7 +58,16 @@ class Color(Enum):
 
 @dataclass
 class TrueColor:
-    """Describes a true color that can be displayed on compatible terminals."""
+    """Describes a true color that can be displayed on compatible terminals.
+
+    Parameters:
+        red (int):
+            The value of red (0-255).
+        green (int):
+            The value of green (0-255).
+        blue (int):
+            The value of blue (0-255).
+    """
 
     red: int
     green: int
