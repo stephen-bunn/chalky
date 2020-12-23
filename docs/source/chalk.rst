@@ -4,7 +4,6 @@ Chalky Package
 ==============
 
 .. automodule:: chalky
-   :members:
 
 
 Chalk
