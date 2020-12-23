@@ -175,7 +175,7 @@ disable_warnings = [
   "no-data-collected"
 ]
 source = [
-  "src/chalk/"
+  "src/chalky/"
 ]
 
 [tool.coverage.report]
