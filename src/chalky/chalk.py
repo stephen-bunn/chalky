@@ -143,6 +143,20 @@ class Chalk:
 
         return self | other
 
+    def __call__(self, value: str) -> str:
+        """Handle applying chalk instances to strings.
+
+        Args:
+            value (str):
+                The string to apply the current styles to.
+
+        Returns:
+            str:
+                The newly styled string.
+        """
+
+        return self | value
+
     @property
     def reverse(self) -> Chalk:
         """Color reverse of the current chalk instance.

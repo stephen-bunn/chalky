@@ -83,4 +83,5 @@ __all__ = [
     "sty",
     "rgb",
     "hex",
+    "chain",
 ]

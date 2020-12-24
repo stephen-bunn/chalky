@@ -16,6 +16,7 @@ using ``|``:
     print(sty.bold & fg.green | "Hello, World!")
 """
 
+from .chain import chain
 from .chalk import Chalk
 from .color import Color, TrueColor
 from .shortcuts import bg, fg, hex, rgb, sty
@@ -31,4 +32,5 @@ __all__ = [
     "sty",
     "rgb",
     "hex",
+    "chain",
 ]
