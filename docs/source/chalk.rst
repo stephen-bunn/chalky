@@ -27,6 +27,13 @@ Color
    :members:
 
 
+Chain
+-----
+
+.. automodule:: chalky.chain
+   :members:
+
+
 Shortcuts
 ---------
 
