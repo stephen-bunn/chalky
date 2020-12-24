@@ -18,6 +18,10 @@ from .style import Style
 class Chain:
     """Quickly produce a chain of styles and colors that can be applied to a string.
 
+    Parameters:
+        chalk (Chalk):
+            The container chalk instance that contains the current chain style.
+
     Examples:
         Chaining styles together should be fairly straightforward:
 
@@ -53,11 +57,13 @@ class Chain:
         return self
 
     @overload
-    def __add__(self, other: Union[Chalk, Chain]) -> Chain:  # noqa: D105
+    def __add__(
+        self, other: Union[Chalk, Chain]
+    ) -> Chain:  # noqa: D105 # pragma: no cover
         ...
 
     @overload
-    def __add__(self, other: str) -> str:  # noqa: D105
+    def __add__(self, other: str) -> str:  # noqa: D105 # pragma: no cover
         ...
 
     def __add__(self, other: Union[Chalk, Chain, str]) -> Union[Chain, str]:
@@ -170,107 +176,107 @@ class Chain:
         return self
 
     @property
-    def bold(self) -> Chain:  # noqa: D102
+    def bold(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.BOLD)
 
     @property
-    def dim(self) -> Chain:  # noqa: D102
+    def dim(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.DIM)
 
     @property
-    def italic(self) -> Chain:  # noqa: D102
+    def italic(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.ITALIC)
 
     @property
-    def underline(self) -> Chain:  # noqa: D102
+    def underline(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.UNDERLINE)
 
     @property
-    def slow_blink(self) -> Chain:  # noqa: D102
+    def slow_blink(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.SLOW_BLINK)
 
     @property
-    def rapid_blink(self) -> Chain:  # noqa: D102
+    def rapid_blink(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.RAPID_BLINK)
 
     @property
-    def reversed(self) -> Chain:  # noqa: D102
+    def reversed(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.REVERSED)
 
     @property
-    def conceal(self) -> Chain:  # noqa: D102
+    def conceal(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.CONCEAL)
 
     @property
-    def strikethrough(self) -> Chain:  # noqa: D102
+    def strikethrough(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.STRIKETHROUGH)
 
     @property
-    def normal(self) -> Chain:  # noqa: D102
+    def normal(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_style(Style.NORMAL)
 
     @property
-    def black(self) -> Chain:  # noqa: D102
+    def black(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BLACK)
 
     @property
-    def red(self) -> Chain:  # noqa: D102
+    def red(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.RED)
 
     @property
-    def green(self) -> Chain:  # noqa: D102
+    def green(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.GREEN)
 
     @property
-    def yellow(self) -> Chain:  # noqa: D102
+    def yellow(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.YELLOW)
 
     @property
-    def blue(self) -> Chain:  # noqa: D102
+    def blue(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BLUE)
 
     @property
-    def magenta(self) -> Chain:  # noqa: D102
+    def magenta(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.MAGENTA)
 
     @property
-    def cyan(self) -> Chain:  # noqa: D102
+    def cyan(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.CYAN)
 
     @property
-    def white(self) -> Chain:  # noqa: D102
+    def white(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.WHITE)
 
     @property
-    def bright_black(self) -> Chain:  # noqa: D102
+    def bright_black(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_BLACK)
 
     @property
-    def bright_red(self) -> Chain:  # noqa: D102
+    def bright_red(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_RED)
 
     @property
-    def bright_green(self) -> Chain:  # noqa: D102
+    def bright_green(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_GREEN)
 
     @property
-    def bright_yellow(self) -> Chain:  # noqa: D102
+    def bright_yellow(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_YELLOW)
 
     @property
-    def bright_blue(self) -> Chain:  # noqa: D102
+    def bright_blue(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_BLUE)
 
     @property
-    def bright_magenta(self) -> Chain:  # noqa: D102
+    def bright_magenta(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_MAGENTA)
 
     @property
-    def bright_cyan(self) -> Chain:  # noqa: D102
+    def bright_cyan(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_CYAN)
 
     @property
-    def bright_white(self) -> Chain:  # noqa: D102
+    def bright_white(self) -> Chain:  # noqa: D102 # pragma: no cover
         return self._handle_color(Color.BRIGHT_WHITE)
 
 

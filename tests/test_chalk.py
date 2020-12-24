@@ -78,7 +78,16 @@ def test_Chalk_applied_by_or(chalk: Chalk, value: str):
 
 @given(chalk(), text(printable, min_size=1))
 def test_Chalk_applied_by_add(chalk: Chalk, value: str):
-    assert isinstance(chalk + value, str)
+    applied = chalk + value
+    assert isinstance(applied, str)
+    assert len(applied) > len(value)
+
+
+@given(chalk(), text(printable, min_size=1))
+def test_Chalk_callable(chalk: Chalk, value: str):
+    applied = chalk(value)
+    assert isinstance(applied, str)
+    assert len(applied) > len(value)
 
 
 @given(chalk(style_strategy=sets(nothing(), max_size=0)))
