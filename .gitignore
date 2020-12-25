@@ -138,3 +138,4 @@ coverage.xml
 # misc
 reports/
 main.py
+.DS_Store

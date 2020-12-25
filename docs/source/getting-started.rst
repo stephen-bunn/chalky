@@ -71,11 +71,13 @@ Applying Chalk to Strings
 
 Now that you have a :class:`~chalky.chalk.Chalk` instance to work with, you can apply it
 to a string using either the ``|`` or ``+`` operators.
+Or you can simply call the chalk instance with the desired string.
 
 .. code-block:: python
 
    print(my_chalk | "Hello, World!")
    print(my_chalk + "Hello, World!")
+   print(my_chalk("Hello, World!"))
 
 When applying the chalk instance to a string, it will build the appropriate ANSI escape
 sequences to style the string and automatically add the reset sequence to the end of the
@@ -107,6 +109,30 @@ on the starting instance.
    my_chalk = Chalk(foreground=Color.RED) & Chalk(foreground=Color.BLUE)
    assert my_chalk.foreground == Color.BLUE
 
+
+Chaining Chalk
+--------------
+
+Chaining together multiple styles and colors is another typical interface that people
+like to use for text coloring.
+We provide a :class:`~.chain.Chain` class that produces a :class:`~.chalk.Chalk` for
+quick and easy production:
+
+.. code-block:: python
+   :linenos:
+
+   from chalky import chain
+
+   print(chain.green.bold | "I'm bold green text")
+   print(chain.italic.white.bg.blue | "I'm italic white text on blue background")
+
+
+Using :class:`~.chain.Chain` classes should be pretty similar to how you use
+:class:`~.chalk.Chalk` instances.
+You can compose them with other chains or chalks and apply them to strings just like
+chalk instances.
+They ultimately just provide a different interface for constructing the chalk instance
+and quickly consuming it.
 
 Chalk Shortcuts
 ---------------
