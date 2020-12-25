@@ -19,6 +19,7 @@ using ``|``:
 from .chain import chain
 from .chalk import Chalk
 from .color import Color, TrueColor
+from .constants import configure
 from .shortcuts import bg, fg, hex, rgb, sty
 from .style import Style
 
@@ -33,4 +34,5 @@ __all__ = [
     "rgb",
     "hex",
     "chain",
+    "configure",
 ]

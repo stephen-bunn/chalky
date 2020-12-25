@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from typing import Optional, Set, Union, overload
 
 from .color import Color_T
+from .constants import is_disabled
 from .interface import get_interface
 from .style import Style
 
@@ -87,8 +88,10 @@ class Chalk:
                 The newly styled string.
         """
 
-        interface = get_interface()
+        if is_disabled():
+            return value
 
+        interface = get_interface()
         return interface.apply(
             value=value,
             style=self.style,
