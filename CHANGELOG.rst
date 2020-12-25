@@ -8,6 +8,23 @@ Changelog
 
 .. towncrier release notes start
 
+`0.3.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.3.0>`_ (*2020-12-25*)
+====================================================================================
+
+Features
+--------
+
+- Including a global :func:`~.constants.configure` callable to handle configuring the
+  entire module.
+  At the moment, the only feature we are adding is the ability to completely disable the
+  actual application of styles and colors through the ``disable`` flag.
+
+Documentation
+-------------
+
+- Adding some simple chalky chaining documentation.
+
+
 `0.2.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.2.0>`_ (*2020-12-24*)
 ====================================================================================
 
