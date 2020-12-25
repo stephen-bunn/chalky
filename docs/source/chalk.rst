@@ -48,6 +48,13 @@ Interface
    :members:
 
 
+Constants
+---------
+
+.. automodule:: chalky.constants
+   :members:
+
+
 Helpers
 -------
 
