@@ -53,3 +53,15 @@ print(sty.bold & hex("#ff02ff") | "More and more colors")
 ```
 
 ![True Colors](https://github.com/stephen-bunn/chalky/raw/master/docs/source/_static/assets/img/truecolor.png)
+
+## Disable Colors
+
+```python
+from chalky import configure, fg
+
+print(fg.red | "I am red text")
+configure(disable=True)
+print(fg.red | "I am NOT red text")
+```
+
+![Configure](https://github.com/stephen-bunn/chalky/raw/master/docs/source/_static/assets/img/configure.png)
