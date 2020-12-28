@@ -8,6 +8,29 @@ Changelog
 
 .. towncrier release notes start
 
+`0.4.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.4.0>`_ (*2020-12-28*)
+====================================================================================
+
+Features
+--------
+
+- Consuming the current chain's styles and colors if :method:`~.chain.Chain.chalk` is consumed.
+  This helps with constructing reusable styles with the chaining syntax:
+
+   .. code-block:: python
+      :linenos:
+
+      from chalky import chain
+
+      # previously not possible
+      error = chain.bold.white.bg.red
+      success = chain.bold.bright_green
+
+      # now possible
+      error = chain.bold.white.bg.red.chalk
+      success = chain.bold.bright_green.chalk
+
+
 `0.3.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.3.0>`_ (*2020-12-25*)
 ====================================================================================
 
