@@ -34,7 +34,7 @@ def chain(
     draw,
     chalk_strategy: Optional[SearchStrategy[Chalk]] = None,
 ) -> SearchStrategy[Chain]:
-    return Chain(chalk=draw(chalk_strategy if chalk_strategy else chalk()))
+    return Chain(_chalk=draw(chalk_strategy if chalk_strategy else chalk()))
 
 
 @given(chain(), one_of(chalk(), chain()))
@@ -77,11 +77,11 @@ def test_Chain_callable(chain: Chain, value: str):
     integers(min_value=0, max_value=255),
 )
 def test_Chain_rgb(chain: Chain, red: int, green: int, blue: int):
-    updated = chain.rgb(red, green, blue)
-    assert isinstance(updated.chalk.foreground, TrueColor)
-    assert updated.chalk.foreground.red == red
-    assert updated.chalk.foreground.green == green
-    assert updated.chalk.foreground.blue == blue
+    updated = chain.rgb(red, green, blue).chalk
+    assert isinstance(updated.foreground, TrueColor)
+    assert updated.foreground.red == red
+    assert updated.foreground.green == green
+    assert updated.foreground.blue == blue
 
 
 @given(chain(chalk_strategy=chalk(foreground_strategy=none())), hex_color())

@@ -33,7 +33,7 @@ class Chain:
         consumed and the chain instance is reset.
     """
 
-    chalk: Chalk = field(default_factory=Chalk)
+    _chalk: Chalk = field(default_factory=Chalk)
     _background: bool = field(default=False)
 
     def __and__(self, other: Union[Chalk, Chain]) -> Chain:
@@ -50,10 +50,10 @@ class Chain:
         """
 
         if isinstance(other, Chalk):
-            self.chalk = self.chalk & other
+            self._chalk = self._chalk & other
             return self
 
-        self.chalk = self.chalk & other.chalk
+        self._chalk = self._chalk & other._chalk
         return self
 
     @overload
@@ -95,10 +95,8 @@ class Chain:
                 The newly styled string.
         """
 
-        applied = self.chalk | value
-
-        self.chalk = Chalk()
-        self._background = False
+        applied = self._chalk | value
+        self._reset()
 
         return applied
 
@@ -116,16 +114,20 @@ class Chain:
 
         return self | value
 
+    def _reset(self):
+        self._chalk = Chalk()
+        self._background = False
+
     def _handle_style(self, style: Style) -> Chain:
-        self.chalk.style.add(style)
+        self._chalk.style.add(style)
 
         return self
 
     def _handle_color(self, color: Color_T) -> Chain:
         if self._background:
-            self.chalk.background = color
+            self._chalk.background = color
         else:
-            self.chalk.foreground = color
+            self._chalk.foreground = color
 
         return self
 
@@ -160,6 +162,25 @@ class Chain:
         """
 
         return self._handle_color(TrueColor.from_hex(color))
+
+    @property
+    def chalk(self) -> Chalk:
+        """Extract the currently built chalk instance.
+
+        .. important::
+            Consuming this property will reset the current chain's styles.
+            We are assuming that if you need the :class:`~.chalk.Chalk`, you have
+            finished constructing it through the chaining syntax.
+
+        Returns:
+            ~.chalk.Chalk:
+                The current chalk instance from the chained styles and colors.
+        """
+
+        chalk = self._chalk
+        self._reset()
+
+        return chalk
 
     @property
     def bg(self) -> Chain:
