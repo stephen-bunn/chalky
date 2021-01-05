@@ -7,7 +7,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Optional, Set, Union, overload
+from typing import Any, Optional, Set, Union, overload
 
 from .color import Color_T
 from .constants import is_disabled
@@ -76,12 +76,18 @@ class Chalk:
             background=other.background or self.background,
         )
 
-    def __or__(self, value: str) -> str:
+    def __or__(self, value: Any) -> str:
         """Style some given string with the current chalk instance.
 
+        .. tip::
+            If a non-string value is provided, we will attempt to get the most
+            appropriate string from the value by simply calling ``str(value)``.
+            So if you are passing in an object, make sure to use an appropriate
+            ``__str__`` or ``__repr__``.
+
         Args:
-            value (str):
-                The string to apply the current chalk styles to.
+            value (~typing.Any):
+                The value to apply the current chalk styles to.
 
         Returns:
             str:
@@ -89,11 +95,11 @@ class Chalk:
         """
 
         if is_disabled():
-            return value
+            return str(value)
 
         interface = get_interface()
         return interface.apply(
-            value=value,
+            value=str(value),
             style=self.style,
             background=self.background,
             foreground=self.foreground,
