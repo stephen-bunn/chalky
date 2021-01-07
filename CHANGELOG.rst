@@ -8,13 +8,36 @@ Changelog
 
 .. towncrier release notes start
 
+`0.5.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.5.0>`_ (*2021-01-07*)
+====================================================================================
+
+Features
+--------
+
+- Automatically casting values applied to :class:`~chalky.chalk.Chalk` to strings.
+  This will fix issues where the user wants to easily use an instance of some class in a
+  templated string without having to cast it to a string themselves.
+
+  .. code-block:: python
+     :linenos:
+
+     from chalky import fg
+
+     class MyObject:
+     
+         def __str__(self) -> str:
+             return f"{self.__class__.__qualname__!s}()"
+
+     print(fg.green | MyObject())
+
+
 `0.4.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.4.0>`_ (*2020-12-28*)
 ====================================================================================
 
 Features
 --------
 
-- Consuming the current chain's styles and colors if :method:`~.chain.Chain.chalk` is consumed.
+- Consuming the current chain's styles and colors if :meth:`~.chain.Chain.chalk` is consumed.
   This helps with constructing reusable styles with the chaining syntax:
 
    .. code-block:: python
