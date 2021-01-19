@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "chalky"
-version = "0.5.0"
+version = "1.0.0"
 description = "Simple ANSI terminal text coloring"
 authors = ["Stephen Bunn <stephen@bunn.io>"]
 maintainers = []
@@ -19,17 +19,19 @@ documentation = "https://chalky.readthedocs.io"
 keywords = [
   "chalk",
   "terminal",
-  "color"
+  "color",
+  "ansi"
 ]
 classifiers = [
   "License :: OSI Approved :: ISC License (ISCL)",
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 5 - Production/Stable",
   "Intended Audience :: Developers",
   "Operating System :: POSIX",
   "Operating System :: MacOS :: MacOS X",
   "Operating System :: Microsoft :: Windows",
   "Natural Language :: English",
-  "Topic :: Software Development :: Libraries :: Python Modules"
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities"
 ]
 include = [
   "pyproject.toml",

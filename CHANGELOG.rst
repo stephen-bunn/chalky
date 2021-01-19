@@ -8,6 +8,12 @@ Changelog
 
 .. towncrier release notes start
 
+`1.0.0 <https://github.com/stephen-bunn/chalky/releases/tag/v1.0.0>`_ (*2021-01-19*)
+====================================================================================
+
+No significant changes.
+
+
 `0.5.0 <https://github.com/stephen-bunn/chalky/releases/tag/v0.5.0>`_ (*2021-01-07*)
 ====================================================================================
 
